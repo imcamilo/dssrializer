@@ -17,9 +17,9 @@ public class UserJsonSerializer extends JsonSerializer<User> {
     @Override
     public void serialize(User user, JsonGenerator gen, SerializerProvider serializers) throws IOException {
         gen.writeStartObject();
-        gen.writeStringField("dni",user.getRut());
-        gen.writeStringField("firstName",user.getName());
-        gen.writeStringField("address",user.getAddress());
+            gen.writeStringField("dni",user.getRut());
+            gen.writeStringField("firstName",user.getName());
+            gen.writeStringField("address",user.getAddress());
         gen.writeEndObject();
     }
 
