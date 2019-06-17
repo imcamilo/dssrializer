@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'groovy'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group 'cl.chiloeworks'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
