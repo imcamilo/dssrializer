@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.IOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -28,6 +30,13 @@ public class JsonsTest {
         user.setName("imcamilo");
         user.setAddress("github");
         assertThat(objectMapper.writeValueAsString(user)).contains("dni");
+    }
+
+    @Test
+    public void testDeserialize() throws IOException {
+        final String USER_JSON = "{\"dni\":\"24180705-5\",\"firstName\":\"Vol\",\"address\":\"Git\"}";
+        User user = objectMapper.readValue(USER_JSON, User.class);
+        assertThat(user.getRut()).isEqualTo("24180705-5");
     }
 
 }
